@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: nursing_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: nursing_website
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - nursing_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: nursing_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - nursing_network
+
+volumes:
+  mysql_data:
+
+networks:
+  nursing_network:
+    driver: bridge
