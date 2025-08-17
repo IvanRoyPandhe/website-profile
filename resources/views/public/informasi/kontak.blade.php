@@ -3,21 +3,41 @@
 @section('title', 'Kontak - Program Studi Ilmu Gizi UM Gresik')
 
 @section('content')
-<section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h1 class="text-5xl font-bold text-gray-900 mb-6">
-                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Hubungi Kami
-                </span>
+<section class="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #1e40af 2px, transparent 2px), radial-gradient(circle at 75% 75%, #fbbf24 2px, transparent 2px); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 lg:px-6 relative z-10">
+        <div class="text-center mb-16 md:mb-20">
+            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-sm font-bold mb-8 shadow-lg">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                HUBUNGI KAMI
+            </div>
+            <h1 class="text-4xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
+                Hubungi <br>
+                <span class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">Kami</span>
             </h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Kami siap membantu Anda dengan informasi Program Studi Ilmu Gizi</p>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">Kami siap membantu Anda dengan informasi Program Studi Ilmu Gizi</p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-12">
             <!-- Contact Form -->
-            <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan</h2>
+            <div class="bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-10 border-t-8 border-blue-600 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-transparent rounded-full -mr-16 -mt-16"></div>
+                <div class="relative z-10">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900">Kirim Pesan</h2>
+                </div>
                 
                 @if(session('success'))
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl mb-6">
@@ -79,17 +99,27 @@
                     </div>
                     
                     <button type="submit" 
-                            class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl font-bold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-2xl">
                         Kirim Pesan
                     </button>
+                </div>
                 </form>
             </div>
 
             <!-- Contact Information -->
             <div class="space-y-8">
                 <!-- Main Contact -->
-                <div class="bg-white rounded-2xl shadow-xl p-8">
-                    <h3 class="text-xl font-bold text-gray-900 mb-6">Informasi Kontak</h3>
+                <div class="bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-10 border-t-8 border-yellow-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-100 to-transparent rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative z-10">
+                    <div class="flex items-center mb-8">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900">Informasi Kontak</h3>
+                    </div>
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
@@ -147,8 +177,11 @@
                     </div>
                 </div>
 
+                    </div>
+                </div>
+
                 <!-- Social Media -->
-                <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-8">
+                <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-3xl p-10 shadow-2xl border-t-8 border-blue-800">
                     <h3 class="text-xl font-bold mb-6">Ikuti Media Sosial Kami</h3>
                     <div class="grid grid-cols-2 gap-4">
                         <a href="#" class="flex items-center p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">

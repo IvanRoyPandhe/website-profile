@@ -3,427 +3,618 @@
 @section('title', 'Beranda - Program Studi Ilmu Gizi UM Gresik')
 
 @section('content')
-<!-- Modern Hero Carousel -->
-<section class="relative h-screen overflow-hidden">
-    <!-- Animated Background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="absolute inset-0 opacity-30">
-            <div class="w-full h-full animate-pulse" style="background-image: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);"></div>
+<!-- Hero Section - Modern University Design -->
+<section class="relative h-screen overflow-hidden bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900" style="margin-top: -80px; padding-top: 80px;">
+    <!-- Geometric Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,193,7,0.3)" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
         </div>
+        <div class="absolute top-20 right-20 w-96 h-96 bg-yellow-400 rounded-full mix-blend-soft-light filter blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-300 rounded-full mix-blend-soft-light filter blur-3xl animate-bounce"></div>
     </div>
     
     <div id="heroCarousel" class="relative h-full w-full">
         @php
             $heroSlides = \App\Models\HeroSlide::active()->ordered()->get();
+            // Sample slides if no data exists
+            $sampleSlides = [
+                [
+                    'title' => 'ILMU GIZI',
+                    'subtitle' => 'Mencetak Nutrisionis Profesional yang Mandiri, Kreatif, dan Unggul Berasaskan Islam',
+                    'background_image' => 'https://picsum.photos/1920/1080?random=1',
+                ],
+                [
+                    'title' => 'LABORATORIUM MODERN',
+                    'subtitle' => 'Fasilitas Laboratorium Gizi Terlengkap dengan Teknologi Terkini untuk Pembelajaran Optimal',
+                    'background_image' => 'https://picsum.photos/1920/1080?random=2',
+                ],
+                [
+                    'title' => 'TERAKREDITASI B',
+                    'subtitle' => 'Program Studi Terakreditasi dengan Kurikulum Berkualitas dan Dosen Berpengalaman',
+                    'background_image' => 'https://picsum.photos/1920/1080?random=3',
+                ]
+            ];
+            $slides = $heroSlides->count() > 0 ? $heroSlides : collect($sampleSlides);
         @endphp
         
-        @forelse($heroSlides as $index => $slide)
+        @forelse($slides as $index => $slide)
             <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} absolute inset-0 text-white flex items-center" 
-                 style="background: {{ $slide->background_image ? 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url(' . Storage::url($slide->background_image) . ')' : 'linear-gradient(135deg, ' . $slide->background_color . ', rgba(0,0,0,0.3))' }}; background-size: cover; background-position: center;">
+                 style="background: linear-gradient(rgba(30,64,175,0.7), rgba(30,64,175,0.5)), url('{{ is_array($slide) ? $slide['background_image'] : ($slide->background_image ? Storage::url($slide->background_image) : 'https://picsum.photos/1920/1080?random=1') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <div class="container mx-auto px-6 relative z-10">
-                    <div class="max-w-4xl mx-auto text-center luxury-slide-right">
-                        <div class="mb-6">
-                            <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 mb-4">
-                                Program Studi Ilmu Gizi
-                            </span>
+                    <div class="max-w-4xl mx-auto text-center transform transition-all duration-700">
+                        <div class="mb-8">
+                            <div class="inline-flex items-center px-6 py-3 bg-yellow-400 text-blue-900 rounded-full text-sm font-bold mb-6 shadow-lg animate-bounce">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                TERAKREDITASI B
+                            </div>
                         </div>
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                            <span class="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                                {{ $slide->title }}
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 leading-tight">
+                            <span class="block text-white mb-1 md:mb-2">Program Studi</span>
+                            <span class="block bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
+                                {{ is_array($slide) ? $slide['title'] : ($slide->title ?? 'ILMU GIZI') }}
+                            </span>
+                            <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blue-200 mt-2 md:mt-4">
+                                Universitas Muhammadiyah Gresik
                             </span>
                         </h1>
-                        <p class="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed max-w-3xl mx-auto">
-                            {{ $slide->subtitle }}
+                        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-blue-100 leading-relaxed max-w-4xl mx-auto font-medium px-4">
+                            {{ is_array($slide) ? $slide['subtitle'] : ($slide->subtitle ?? 'Mencetak Nutrisionis Profesional yang Mandiri, Kreatif, dan Unggul Berasaskan Islam') }}
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            @if($slide->button_text && $slide->button_link)
-                                <a href="{{ $slide->button_link }}" class="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold text-white shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
-                                    <span class="relative z-10">{{ $slide->button_text }}</span>
-                                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                </a>
-                            @endif
-                            <a href="#about" class="px-8 py-4 border-2 border-white/30 rounded-xl font-semibold text-white backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-                                Pelajari Lebih Lanjut
+                        <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-16">
+                            <a href="{{ route('kontak') }}" class="group relative px-6 sm:px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full font-bold text-blue-900 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 text-sm md:text-base">
+                                <span class="flex items-center">
+                                    <svg class="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    DAFTAR SEKARANG
+                                </span>
                             </a>
+                            <a href="#about" class="group px-6 sm:px-8 md:px-10 py-3 md:py-4 border-2 md:border-3 border-yellow-400 rounded-full font-bold text-yellow-400 hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 flex items-center text-sm md:text-base">
+                                Pelajari Lebih Lanjut
+                                <svg class="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <!-- Stats Row -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto px-4">
+                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">B</div>
+                                <div class="text-xs md:text-sm text-blue-200 font-medium">Akreditasi</div>
+                            </div>
+                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">2030</div>
+                                <div class="text-xs md:text-sm text-blue-200 font-medium">Target Visi</div>
+                            </div>
+                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">S1</div>
+                                <div class="text-xs md:text-sm text-blue-200 font-medium">Jenjang</div>
+                            </div>
+                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">100+</div>
+                                <div class="text-xs md:text-sm text-blue-200 font-medium">Alumni</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         @empty
-            <div class="carousel-slide active absolute inset-0 text-white flex items-center">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Program Studi Ilmu Gizi</h1>
-                    <p class="text-2xl mb-8 text-blue-100">Mencetak Nutrisionis Profesional dan Mandiri</p>
-                </div>
-            </div>
         @endforelse
+        
+        <!-- Carousel Navigation -->
+        @if($slides->count() > 1)
+            <!-- Previous/Next Buttons -->
+            <button id="prevSlide" class="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button id="nextSlide" class="absolute right-2 sm:right-4 md:right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <div class="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 sm:space-x-3">
+                @foreach($slides as $index => $slide)
+                    <button class="carousel-indicator w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-white/40 hover:bg-white/60 transition-all duration-300 {{ $index === 0 ? 'active bg-yellow-400 scale-125' : '' }}" data-slide="{{ $index }}"></button>
+                @endforeach
+            </div>
+        @endif
     </div>
     
-    <!-- Modern Carousel Controls -->
-    <div class="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-20">
-        <button id="prevSlide" class="group bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full transition-all duration-300 backdrop-blur-md border border-white/20 hover:border-white/40 hover:scale-110">
-            <svg class="w-5 h-5 mx-auto transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-        </button>
-        <button id="nextSlide" class="group bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full transition-all duration-300 backdrop-blur-md border border-white/20 hover:border-white/40 hover:scale-110">
-            <svg class="w-5 h-5 mx-auto transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-        </button>
-    </div>
-    
-    <!-- Modern Carousel Indicators -->
-    @if($heroSlides->count() > 1)
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-            @foreach($heroSlides as $index => $slide)
-                <button class="carousel-indicator {{ $index === 0 ? 'active' : '' }} w-3 h-3 bg-white/40 hover:bg-white/60 rounded-full transition-all duration-300 hover:scale-125" data-slide="{{ $index }}"></button>
-            @endforeach
+    <!-- Floating Scroll Indicator -->
+    @if($slides->count() <= 1)
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <a href="#about" class="flex flex-col items-center text-white/80 hover:text-white transition-colors duration-300">
+                <span class="text-sm mb-2">Scroll</span>
+                <div class="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center">
+                    <div class="w-1 h-3 bg-white rounded-full mt-2"></div>
+                </div>
+            </a>
         </div>
     @endif
-    
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 right-8 z-20">
-        <a href="#about" class="flex flex-col items-center text-white/70 hover:text-white transition-colors duration-300">
-            <span class="text-sm mb-2">Scroll</span>
-            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
-            </div>
-        </a>
-    </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden animate-on-scroll">
-    <!-- Decorative Elements -->
-    <div class="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-indigo-400/20 to-cyan-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+<!-- About Section - Modern University Design -->
+<section id="about" class="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <!-- Modern Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #1e40af 2px, transparent 2px), radial-gradient(circle at 75% 75%, #fbbf24 2px, transparent 2px); background-size: 50px 50px;"></div>
+    </div>
     
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-16 luxury-fade-up">
-            <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-6">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    <div class="container mx-auto px-4 lg:px-6 relative z-10">
+        <div class="text-center mb-20">
+            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-sm font-bold mb-8 shadow-lg">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
                 </svg>
-                Tentang Program Kami
+                TENTANG PROGRAM STUDI
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Program Studi Ilmu Gizi
-                </span>
+            <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight">
+                Program Studi <br>
+                <span class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">Ilmu Gizi</span>
             </h2>
-            <div class="max-w-4xl mx-auto text-xl text-gray-600 leading-relaxed">
-                <p class="mb-6">Pendidikan S1 Ilmu Gizi untuk mencetak sumber daya kesehatan di bidang gizi yang kompeten guna membantu penyediaan pelayanan kesehatan bagi masyarakat terkait dengan gizi masyarakat, klinik dietetik (diet makanan untuk pasien), food service management/manajemen penyediaan pangan dan pengembangan entrepreneurship di bidang pangan.</p>
-                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-500 mb-6">
-                    <h3 class="font-bold text-green-700 mb-2">AKREDITASI B</h3>
-                    <p class="text-gray-700">Program Studi ini sudah mendapatkan akreditasi B dari LAM-PTkes dengan Nomor SK "0350/LAM-PTKes/Akr/Sar/XI/2020"</p>
+            <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
+                Mencetak nutrisionis profesional yang kompeten dalam pelayanan gizi masyarakat, 
+                klinik dietetik, dan manajemen penyediaan pangan dengan pendekatan Islam yang rahmatan lil alamiin.
+            </p>
+        </div>
+        
+        <!-- Accreditation Badge - Premium Design -->
+        <div class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 rounded-3xl p-8 mb-20 shadow-2xl border-4 border-yellow-300 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-transparent"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-center">
+                <div class="w-20 h-20 bg-blue-800 rounded-2xl flex items-center justify-center mr-8 mb-6 md:mb-0 shadow-xl">
+                    <svg class="w-10 h-10 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-3xl font-black text-blue-900 mb-3">TERAKREDITASI B</h3>
+                    <p class="text-blue-800 font-bold text-lg">SK Nomor: 0350/LAM-PTKes/Akr/Sar/XI/2020</p>
+                    <p class="text-blue-700 font-medium mt-2">Lembaga Akreditasi Mandiri Pendidikan Tinggi Kesehatan</p>
                 </div>
             </div>
         </div>
         
-        <!-- Stats Section -->
-        <div class="grid md:grid-cols-4 gap-8 mb-16 luxury-slide-left">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+        <!-- Stats Grid - Modern University Style -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            <div class="group bg-gradient-to-br from-blue-600 to-blue-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-blue-500">
+                <div class="w-16 h-16 bg-yellow-400 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-blue-900 font-black text-2xl">B</span>
                 </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-2">B</h3>
-                <p class="text-gray-600">Akreditasi LAM-PTkes</p>
+                <h4 class="text-lg font-bold text-white text-center mb-2">Akreditasi</h4>
+                <p class="text-blue-200 text-center text-sm">Terakreditasi B</p>
             </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                    </svg>
+            <div class="group bg-gradient-to-br from-yellow-500 to-yellow-600 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-yellow-400">
+                <div class="w-16 h-16 bg-blue-800 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-yellow-400 font-black text-lg">2030</span>
                 </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-2">2030</h3>
-                <p class="text-gray-600">Target Visi</p>
+                <h4 class="text-lg font-bold text-blue-900 text-center mb-2">Target Visi</h4>
+                <p class="text-blue-800 text-center text-sm">Visi 2030</p>
             </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
+            <div class="group bg-gradient-to-br from-blue-600 to-blue-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-blue-500">
+                <div class="w-16 h-16 bg-yellow-400 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-blue-900 font-black text-2xl">S1</span>
                 </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-2">S1</h3>
-                <p class="text-gray-600">Jenjang Pendidikan</p>
+                <h4 class="text-lg font-bold text-white text-center mb-2">Jenjang</h4>
+                <p class="text-blue-200 text-center text-sm">Sarjana</p>
             </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+            <div class="group bg-gradient-to-br from-yellow-500 to-yellow-600 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-yellow-400">
+                <div class="w-16 h-16 bg-blue-800 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-2">Multi</h3>
-                <p class="text-gray-600">Prospek Karir</p>
+                <h4 class="text-lg font-bold text-blue-900 text-center mb-2">Multi Karir</h4>
+                <p class="text-blue-800 text-center text-sm">Prospek Luas</p>
             </div>
         </div>
         
-        <!-- Feature Cards -->
-        <div class="grid md:grid-cols-3 gap-8 luxury-zoom-in">
-            <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=400&fit=crop" alt="Laboratorium Gizi" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-green-900/90 via-green-600/50 to-transparent">
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Laboratorium Gizi</h3>
-                        <p class="text-green-100">Fasilitas modern untuk analisis makanan dan gizi</p>
+        <!-- Features - Premium University Cards -->
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 border-blue-600 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-transparent rounded-full -mr-16 -mt-16"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">Laboratorium Gizi</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">Fasilitas modern untuk analisis makanan dan gizi dengan peralatan terkini yang mendukung pembelajaran praktis.</p>
                 </div>
             </div>
-            <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=400&fit=crop" alt="Praktik Dietetik" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-600/50 to-transparent">
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Praktik Dietetik</h3>
-                        <p class="text-blue-100">Pengalaman langsung konsultasi gizi dan diet</p>
+            
+            <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 border-yellow-500 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-100 to-transparent rounded-full -mr-16 -mt-16"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-yellow-600 transition-colors duration-300">Praktik Dietetik</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">Pengalaman langsung konsultasi gizi dan diet dengan pendekatan kasus nyata di klinik gizi.</p>
                 </div>
             </div>
-            <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
-                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&h=400&fit=crop" alt="Food Service Management" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-600/50 to-transparent">
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Food Service Management</h3>
-                        <p class="text-purple-100">Manajemen penyediaan pangan dan entrepreneurship</p>
+            
+            <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 border-blue-600 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-transparent rounded-full -mr-16 -mt-16"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0v2a1 1 0 01-1 1H6a1 1 0 01-1-1v-2m14 0V7a2 2 0 00-2-2H9a2 2 0 00-2 2v14"></path>
+                        </svg>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">Food Service</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">Manajemen penyediaan pangan dan kewirausahaan di bidang kuliner sehat dengan standar industri.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Why Choose Us Section -->
-<section class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 relative overflow-hidden animate-on-scroll">
-    <!-- Animated Background -->
+<!-- Why Choose Us - Premium University Section -->
+<section class="py-20 lg:py-32 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <!-- Premium Background Pattern -->
     <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-800/50 to-transparent"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-yellow-400/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
     </div>
     
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-16 luxury-fade-up">
-            <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white font-medium mb-6">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+    <div class="container mx-auto px-4 lg:px-6 relative z-10">
+        <div class="text-center mb-20">
+            <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 rounded-full text-sm font-black mb-8 shadow-2xl">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
-                Mengapa Memilih Kami
+                KEUNGGULAN PROGRAM STUDI
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-white mb-8">
-                Keunggulan <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Program Gizi</span>
+            <h2 class="text-4xl lg:text-6xl font-black text-white mb-8 leading-tight">
+                Mengapa Memilih <br>
+                <span class="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Program Gizi UMG?</span>
             </h2>
-            <p class="text-xl text-blue-100 max-w-3xl mx-auto">Menjadi nutrisionis yang mandiri, kreatif, profesional dan unggul di bidang gizi olahraga dan pengembangan produk pangan</p>
+            <p class="text-xl text-blue-100 max-w-4xl mx-auto font-medium leading-relaxed">
+                Menjadi nutrisionis yang mandiri, kreatif, dan profesional dengan keunggulan kompetitif di era global
+            </p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="group relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-                <div class="relative bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-500 transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-2xl">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                        <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M12 6.253c1.168-.776 2.754-1.253 4.5-1.253S19.832 5.477 21 6.253v13M12 6.253L8.5 4.5l7 3v13l-7-3z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Kurikulum Berkualitas</h3>
-                    <p class="text-blue-100 leading-relaxed">Kurikulum yang sesuai dengan kompetensi gizi dan perkembangan global untuk menghasilkan tenaga gizi profesional</p>
+                    <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">Kurikulum Berkualitas</h3>
+                    <p class="text-blue-100 text-center leading-relaxed font-medium">Kurikulum sesuai standar nasional dan internasional dengan pendekatan kompetensi gizi terkini</p>
                 </div>
             </div>
             
-            <div class="group relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-                <div class="relative bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-500 transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-2xl">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                        <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Penelitian Unggul</h3>
-                    <p class="text-blue-100 leading-relaxed">Mengembangkan penelitian unggul berdasarkan ilmu dan teknologi dalam bidang gizi</p>
+                    <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">Penelitian Unggul</h3>
+                    <p class="text-blue-100 text-center leading-relaxed font-medium">Mengembangkan penelitian inovatif berbasis ilmu dan teknologi gizi untuk kesehatan masyarakat</p>
                 </div>
             </div>
             
-            <div class="group relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-                <div class="relative bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-500 transform hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-2xl">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                        <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Pengabdian Masyarakat</h3>
-                    <p class="text-blue-100 leading-relaxed">Pengabdian masyarakat yang kreatif dan berkelanjutan untuk meningkatkan derajat kesehatan masyarakat</p>
+                    <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">Pengabdian Masyarakat</h3>
+                    <p class="text-blue-100 text-center leading-relaxed font-medium">Program pengabdian kreatif dan berkelanjutan untuk meningkatkan kesehatan masyarakat</p>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Additional Features -->
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center mr-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-xl font-bold text-white">Kerjasama Internasional</h4>
-                </div>
-                <p class="text-blue-100">Kerjasama di tingkat regional, nasional, dan internasional di bidang Tridharma</p>
-            </div>
-            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-xl flex items-center justify-center mr-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-xl font-bold text-white">Penjaminan Mutu</h4>
-                </div>
-                <p class="text-blue-100">Sistem penjaminan mutu internal dan eksternal untuk meningkatkan citra lembaga</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Latest News Section -->
-<section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden animate-on-scroll">
-    <!-- Decorative Elements -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-200/30 to-purple-200/30 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-indigo-200/30 to-cyan-200/30 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+<!-- Latest News - Premium University Layout -->
+<section class="py-20 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <!-- Premium Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: linear-gradient(45deg, #1e40af 25%, transparent 25%), linear-gradient(-45deg, #1e40af 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #fbbf24 75%), linear-gradient(-45deg, transparent 75%, #fbbf24 75%); background-size: 60px 60px; background-position: 0 0, 0 30px, 30px -30px, -30px 0px;"></div>
+    </div>
     
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-16 luxury-fade-up">
-            <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-6">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+    <div class="container mx-auto px-4 lg:px-6 relative z-10">
+        <div class="text-center mb-16 md:mb-20">
+            <div class="inline-flex items-center px-4 sm:px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-xs sm:text-sm font-black mb-6 md:mb-8 shadow-2xl">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 md:mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"/>
+                    <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V9a1 1 0 00-1-1h-1v3a2 2 0 01-2 2H5a2 2 0 01-2-2V9a1 1 0 00-1 1v5.5a1.5 1.5 0 01-3 0V9a2 2 0 012-2h1V5a2 2 0 012-2h8a2 2 0 012 2v2z"/>
                 </svg>
-                Berita Terkini
+                <span class="hidden sm:inline">BERITA & INFORMASI TERKINI</span>
+                <span class="sm:hidden">BERITA TERKINI</span>
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Informasi Terbaru
-                </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 md:mb-8 leading-tight px-4">
+                <span class="block sm:inline">Informasi </span>
+                <span class="block sm:inline bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">Terbaru</span>
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">Ikuti perkembangan terbaru dari program studi dan dunia keperawatan</p>
-            <a href="{{ route('berita') }}" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Lihat Semua Berita
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            <p class="text-base sm:text-lg md:text-xl text-gray-700 max-w-4xl mx-auto mb-8 md:mb-12 font-medium leading-relaxed px-4">
+                Ikuti perkembangan terbaru dari program studi dan dunia gizi untuk tetap update dengan informasi terkini
+            </p>
+            <a href="{{ route('berita') }}" class="inline-flex items-center px-6 sm:px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 rounded-full font-bold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-2xl hover:shadow-yellow-400/25 transform hover:scale-105 hover:-translate-y-1 text-sm md:text-base">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 md:mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"/>
+                </svg>
+                <span class="hidden sm:inline">Lihat Semua Berita</span>
+                <span class="sm:hidden">Semua Berita</span>
+                <svg class="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
             </a>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8 luxury-zoom-in">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             @php
                 $latestNews = \App\Models\Berita::published()->orderBy('published_at', 'desc')->limit(3)->get();
             @endphp
             @forelse($latestNews as $index => $article)
-                <article class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-gray-100 overflow-hidden transform transition-all duration-500 hover:scale-105">
+                <article class="group bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 md:hover:-translate-y-4 border-t-4 md:border-t-8 border-blue-600 relative">
                     @if($article->featured_image)
-                        <div class="relative overflow-hidden">
+                        <div class="aspect-video overflow-hidden relative">
                             <img src="{{ Storage::url($article->featured_image) }}" 
                                  alt="{{ $article->title }}" 
-                                 class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                            <div class="absolute top-3 md:top-4 left-3 md:left-4">
+                                <span class="inline-block px-3 md:px-4 py-1 md:py-2 bg-yellow-400 text-blue-900 text-xs font-black rounded-full shadow-lg">
+                                    {{ ucfirst($article->category) }}
+                                </span>
+                            </div>
+                            <div class="absolute bottom-3 md:bottom-4 right-3 md:right-4">
+                                <span class="inline-block px-2 md:px-3 py-1 bg-white/90 text-gray-800 text-xs font-bold rounded-full">
+                                    {{ $article->published_at->format('d M Y') }}
+                                </span>
+                            </div>
                         </div>
                     @endif
-                    <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-full">
-                                {{ ucfirst($article->category) }}
-                            </span>
-                            <span class="text-gray-500 text-sm font-medium">
-                                {{ $article->published_at->format('d M Y') }}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                            <a href="{{ route('berita.detail', $article->slug) }}" class="hover:underline">
+                    <div class="p-4 sm:p-6 md:p-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 md:mb-4 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
+                            <a href="{{ route('berita.detail', $article->slug) }}">
                                 {{ $article->title }}
                             </a>
                         </h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">{{ Str::limit($article->excerpt, 120) }}</p>
+                        <p class="text-gray-600 mb-4 md:mb-6 line-clamp-3 leading-relaxed text-sm sm:text-base">{{ Str::limit($article->excerpt, 120) }}</p>
                         <a href="{{ route('berita.detail', $article->slug) }}" 
-                           class="inline-flex items-center text-blue-600 hover:text-purple-600 font-semibold transition-all duration-300 group-hover:translate-x-2">
-                            Baca Selengkapnya
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           class="inline-flex items-center px-4 sm:px-5 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-bold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform group-hover:scale-105 text-sm md:text-base">
+                            <span class="hidden sm:inline">Baca Selengkapnya</span>
+                            <span class="sm:hidden">Baca</span>
+                            <svg class="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </a>
                     </div>
                 </article>
             @empty
-                <div class="col-span-3 text-center py-16">
-                    <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-8 md:py-12">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 md:w-8 md:h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Belum Ada Berita</h3>
-                    <p class="text-gray-600 mb-6">Berita terbaru akan segera hadir. Silakan kembali lagi nanti.</p>
-                    <a href="{{ route('berita') }}" class="text-blue-600 hover:text-purple-600 font-semibold transition-colors duration-300">Periksa Kembali →</a>
+                    <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-2">Belum Ada Berita</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-4">Berita terbaru akan segera hadir</p>
+                    <a href="{{ route('berita') }}" class="text-blue-600 hover:text-blue-700 font-medium text-sm md:text-base">Periksa Kembali →</a>
                 </div>
             @endforelse
         </div>
     </div>
 </section>
 
-<!-- Call to Action -->
-<section class="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 relative overflow-hidden animate-on-scroll">
-    <!-- Animated Background -->
+<!-- Call to Action - Premium University CTA -->
+<section class="py-20 lg:py-32 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <!-- Premium Background Elements -->
     <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="absolute top-0 left-0 w-full h-full">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-blue-600/20"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="cta-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="10" cy="10" r="1" fill="rgba(251,191,36,0.3)"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#cta-grid)" />
+            </svg>
         </div>
     </div>
     
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center luxury-slide-right">
-            <div class="mb-8">
-                <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white font-medium border border-white/20 mb-6">
-                    Daftar Sekarang
-                </span>
+    <div class="container mx-auto px-4 lg:px-6 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 rounded-full text-sm font-black mb-10 shadow-2xl animate-bounce">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                BERGABUNG DENGAN KAMI SEKARANG
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Siap Menjadi <span class="bg-gradient-to-r from-green-300 to-blue-300 bg-clip-text text-transparent">Nutrisionis</span> Profesional?
+            <h2 class="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight">
+                Siap Menjadi <br>
+                <span class="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Nutrisionis Profesional?</span>
             </h2>
-            <p class="text-2xl text-blue-100 mb-10 leading-relaxed">Bergabunglah dengan program gizi terdepan yang berasaskan Islam</p>
+            <p class="text-xl lg:text-2xl text-blue-100 mb-16 max-w-4xl mx-auto font-medium leading-relaxed">
+                Bergabunglah dengan program gizi terdepan yang berasaskan Islam dan raih masa depan cemerlang sebagai ahli gizi profesional
+            </p>
             
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="{{ route('kontak') }}" class="group relative px-10 py-5 bg-white text-blue-600 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2">
-                    <span class="relative z-10">Mulai Sekarang</span>
-                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute inset-0 bg-white rounded-2xl group-hover:bg-transparent transition-colors duration-300"></div>
-                    <span class="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-bold z-20">Mulai Sekarang</span>
+            <div class="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
+                <a href="{{ route('kontak') }}" class="group relative px-12 py-5 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full font-black text-blue-900 shadow-2xl hover:shadow-yellow-400/30 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 text-lg">
+                    <span class="flex items-center">
+                        <svg class="w-7 h-7 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        DAFTAR SEKARANG
+                        <svg class="w-6 h-6 ml-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
                 </a>
-                <a href="#about" class="px-10 py-5 border-2 border-white/30 text-white rounded-2xl font-bold text-lg backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300">
+                <a href="#about" class="group px-12 py-5 border-4 border-yellow-400 rounded-full font-black text-yellow-400 hover:bg-yellow-400 hover:text-blue-900 transition-all duration-500 text-lg flex items-center">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
                     Pelajari Lebih Lanjut
                 </a>
             </div>
             
-            <!-- Trust Indicators -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">B</div>
-                    <div class="text-blue-200">Akreditasi LAM-PTkes</div>
+            <!-- Trust Indicators - Premium Design -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
+                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">B</div>
+                    <div class="text-blue-200 font-bold">Akreditasi</div>
+                    <div class="text-blue-300 text-xs mt-1">Terakreditasi</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">2030</div>
-                    <div class="text-blue-200">Target Visi</div>
+                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
+                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">2030</div>
+                    <div class="text-blue-200 font-bold">Target Visi</div>
+                    <div class="text-blue-300 text-xs mt-1">Visi Masa Depan</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">Multi</div>
-                    <div class="text-blue-200">Prospek Karir</div>
+                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
+                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">∞</div>
+                    <div class="text-blue-200 font-bold">Prospek Karir</div>
+                    <div class="text-blue-300 text-xs mt-1">Peluang Luas</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">S1</div>
-                    <div class="text-blue-200">Jenjang Pendidikan</div>
+                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
+                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">S1</div>
+                    <div class="text-blue-200 font-bold">Jenjang</div>
+                    <div class="text-blue-300 text-xs mt-1">Sarjana</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Premium University Animations -->
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-10px) rotate(1deg); }
+        50% { transform: translateY(-20px) rotate(0deg); }
+        75% { transform: translateY(-10px) rotate(-1deg); }
+    }
+    
+    @keyframes float-delay {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        33% { transform: translateY(-15px) rotate(2deg); }
+        66% { transform: translateY(-25px) rotate(-1deg); }
+    }
+    
+    @keyframes fade-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(30px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    
+    @keyframes premium-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6), 0 0 60px rgba(30, 64, 175, 0.3); }
+    }
+    
+    @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes bounce-in {
+        0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+        50% { transform: scale(1.05) rotate(5deg); opacity: 0.8; }
+        70% { transform: scale(0.9) rotate(-2deg); opacity: 0.9; }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    
+    @keyframes slide-up-premium {
+        from { 
+            opacity: 0; 
+            transform: translateY(50px) scale(0.9) rotateX(10deg); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0) scale(1) rotateX(0deg); 
+        }
+    }
+    
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delay { animation: float-delay 8s ease-in-out infinite; }
+    .animate-fade-in { animation: fade-in 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+    .animate-fade-in-up { animation: fade-in-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+    .animate-premium-glow { animation: premium-glow 3s ease-in-out infinite; }
+    .animate-gradient-shift { 
+        background: linear-gradient(-45deg, #1e40af, #3b82f6, #fbbf24, #f59e0b);
+        background-size: 400% 400%;
+        animation: gradient-shift 8s ease infinite;
+    }
+    .animate-bounce-in { animation: bounce-in 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+    .animate-slide-up-premium { animation: slide-up-premium 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+    
+    /* Premium hover effects */
+    .hover-lift-premium:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .hover-glow-blue:hover {
+        box-shadow: 0 0 30px rgba(30, 64, 175, 0.4);
+    }
+    
+    .hover-glow-yellow:hover {
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+    }
+    
+    /* Text gradient animation */
+    .text-gradient-animate {
+        background: linear-gradient(-45deg, #1e40af, #3b82f6, #fbbf24, #f59e0b);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient-shift 6s ease infinite;
+    }
+    
+    /* Premium card hover */
+    .card-premium:hover {
+        transform: translateY(-12px) rotateY(5deg) rotateX(5deg);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Smooth transitions */
+    .transition-premium {
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+</style>
 @endsection
