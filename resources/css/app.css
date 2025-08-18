@@ -9,3 +9,18 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Ensure Filament buttons are visible */
+.fi-header-actions,
+.fi-ac-btn-action,
+[data-filament-header-actions],
+.filament-header-actions {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.fi-btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+}
