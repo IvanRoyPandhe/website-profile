@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HeroSlideResource\Pages;
-use App\Filament\Resources\HeroSlideResource\RelationManagers;
-use App\Models\HeroSlide;
+use App\Filament\Resources\AboutSectionResource\Pages;
+use App\Filament\Resources\AboutSectionResource\RelationManagers;
+use App\Models\AboutSection;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,22 +12,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\BooleanColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class HeroSlideResource extends Resource
+class AboutSectionResource extends Resource
 {
-    protected static ?string $model = HeroSlide::class;
+    protected static ?string $model = AboutSection::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
     protected static ?string $navigationGroup = 'Konten Website';
-    protected static ?string $navigationLabel = 'Hero Carousel';
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationLabel = 'Tentang Program Studi';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -35,32 +33,33 @@ class HeroSlideResource extends Resource
             ->schema([
                 TextInput::make('title')
                     ->label('Judul Utama')
-                    ->helperText('Judul besar yang muncul di slide (contoh: ILMU GIZI)')
+                    ->helperText('Contoh: Program Studi')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('subtitle')
                     ->label('Sub Judul')
-                    ->helperText('Teks deskripsi di bawah judul utama')
+                    ->helperText('Contoh: Ilmu Gizi')
                     ->required()
                     ->maxLength(255),
-                FileUpload::make('background_image')
-                    ->label('Gambar Background')
-                    ->helperText('Upload gambar background untuk hero slider. Rekomendasi ukuran 1920x1080px.')
-                    ->image()
-                    ->directory('hero-slides')
-                    ->disk('public')
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif'])
-                    ->maxSize(5120)
-                    ->deletable(true)
-                    ->previewable(true),
-                TextInput::make('sort_order')
-                    ->label('Urutan Tampil')
-                    ->helperText('Angka untuk mengatur urutan slide (1=pertama, 2=kedua, dst)')
-                    ->numeric()
-                    ->default(1),
+                Textarea::make('description')
+                    ->label('Deskripsi')
+                    ->helperText('Deskripsi lengkap tentang program studi')
+                    ->required()
+                    ->rows(4),
+                TextInput::make('accreditation_title')
+                    ->label('Judul Akreditasi')
+                    ->helperText('Contoh: TERAKREDITASI B')
+                    ->maxLength(255),
+                TextInput::make('accreditation_sk')
+                    ->label('SK Nomor')
+                    ->helperText('Contoh: SK Nomor: 0350/LAM-PTKes/Akr/Sar/XI/2020')
+                    ->maxLength(255),
+                TextInput::make('accreditation_institution')
+                    ->label('Lembaga Akreditasi')
+                    ->helperText('Contoh: Lembaga Akreditasi Mandiri Pendidikan Tinggi Kesehatan')
+                    ->maxLength(255),
                 Toggle::make('is_active')
                     ->label('Tampilkan di Website')
-                    ->helperText('Matikan jika tidak ingin ditampilkan')
                     ->default(true),
             ]);
     }
@@ -69,22 +68,18 @@ class HeroSlideResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('background_image')
-                    ->label('Gambar')
-                    ->size(80),
                 TextColumn::make('title')
                     ->label('Judul')
                     ->searchable(),
                 TextColumn::make('subtitle')
                     ->label('Sub Judul')
+                    ->searchable(),
+                TextColumn::make('description')
+                    ->label('Deskripsi')
                     ->limit(50),
-                TextColumn::make('sort_order')
-                    ->label('Urutan')
-                    ->sortable(),
                 BooleanColumn::make('is_active')
                     ->label('Aktif'),
             ])
-            ->defaultSort('sort_order')
             ->filters([
                 //
             ])
@@ -108,9 +103,9 @@ class HeroSlideResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHeroSlides::route('/'),
-            'create' => Pages\CreateHeroSlide::route('/create'),
-            'edit' => Pages\EditHeroSlide::route('/{record}/edit'),
+            'index' => Pages\ListAboutSections::route('/'),
+            'create' => Pages\CreateAboutSection::route('/create'),
+            'edit' => Pages\EditAboutSection::route('/{record}/edit'),
         ];
     }
 }

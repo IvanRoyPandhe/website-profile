@@ -386,7 +386,7 @@
                     
                     <!-- Akademik Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-gray-100 transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Akademik
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -403,7 +403,7 @@
                     
                     <!-- Kemahasiswaan Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-gray-100 transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Kemahasiswaan
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -421,7 +421,7 @@
                     
                     <!-- Dokumen Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-gray-100 transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Dokumen
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -437,7 +437,7 @@
                     
                     <!-- Publikasi Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-gray-100 transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Publikasi
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -454,7 +454,7 @@
                     
                     <!-- Informasi Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-gray-100 transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Informasi
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -471,7 +471,7 @@
                     
                     <!-- Penjaminan Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-gray-100 transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Penjaminan
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -509,95 +509,95 @@
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
-                        <a href="{{ route('visi-misi') }}" class="block py-2 text-sm text-blue-200 hover:text-yellow-300 transition-colors">Visi Keilmuan dan Tujuan</a>
-                        <a href="{{ route('struktur-organisasi') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Struktur Organisasi</a>
-                        <a href="{{ route('profile-dosen') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Profile Dosen</a>
-                        <a href="{{ route('prospek-lulusan') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Prospek Lulusan</a>
-                        <a href="{{ route('biaya-pendidikan') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Biaya Pendidikan</a>
+                        <a href="{{ route('visi-misi') }}" class="block py-2 text-sm text-white hover:text-yellow-300 transition-colors">Visi Keilmuan dan Tujuan</a>
+                        <a href="{{ route('struktur-organisasi') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Struktur Organisasi</a>
+                        <a href="{{ route('profile-dosen') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Profile Dosen</a>
+                        <a href="{{ route('prospek-lulusan') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Prospek Lulusan</a>
+                        <a href="{{ route('biaya-pendidikan') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Biaya Pendidikan</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-gray-100 flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
                         Akademik
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('kurikulum') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Kurikulum dan Matakuliah</a>
-                        <a href="{{ route('kalender-akademik') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Kalender Akademik</a>
-                        <a href="{{ route('jadwal-kuliah') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Jadwal Kuliah</a>
+                        <a href="{{ route('kurikulum') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kurikulum dan Matakuliah</a>
+                        <a href="{{ route('kalender-akademik') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kalender Akademik</a>
+                        <a href="{{ route('jadwal-kuliah') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Jadwal Kuliah</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-gray-100 flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
                         Kemahasiswaan
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('hima') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">HIMA</a>
-                        <a href="{{ route('ikahima') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">IKAHIMA</a>
-                        <a href="{{ route('prestasi-mahasiswa') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Prestasi Mahasiswa</a>
-                        <a href="{{ route('survey-pengguna') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Survey Pengguna</a>
+                        <a href="{{ route('hima') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">HIMA</a>
+                        <a href="{{ route('ikahima') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">IKAHIMA</a>
+                        <a href="{{ route('prestasi-mahasiswa') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Prestasi Mahasiswa</a>
+                        <a href="{{ route('survey-pengguna') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Survey Pengguna</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-gray-100 flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
                         Dokumen
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('akreditasi') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Akreditasi</a>
-                        <a href="{{ route('kebijakan') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Kebijakan</a>
+                        <a href="{{ route('akreditasi') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Akreditasi</a>
+                        <a href="{{ route('kebijakan') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kebijakan</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-gray-100 flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
                         Publikasi
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('penelitian') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Penelitian</a>
-                        <a href="{{ route('pengabdian') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Pengabdian</a>
-                        <a href="{{ route('publikasi-jurnal') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Publikasi Jurnal</a>
+                        <a href="{{ route('penelitian') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Penelitian</a>
+                        <a href="{{ route('pengabdian') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Pengabdian</a>
+                        <a href="{{ route('publikasi-jurnal') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Publikasi Jurnal</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-gray-100 flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
                         Informasi
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('berita') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Berita</a>
-                        <a href="{{ route('agenda') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Agenda</a>
-                        <a href="{{ route('kontak') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Kontak</a>
+                        <a href="{{ route('berita') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Berita</a>
+                        <a href="{{ route('agenda') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Agenda</a>
+                        <a href="{{ route('kontak') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kontak</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-gray-100 flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
                         Penjaminan
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('monitoring-evaluasi') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Monitoring & Evaluasi</a>
-                        <a href="{{ route('rencana-tindak-lanjut') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Rencana Tindak Lanjut</a>
-                        <a href="{{ route('survei') }}" class="block py-1 text-sm text-gray-600 hover:text-gray-100">Survei</a>
+                        <a href="{{ route('monitoring-evaluasi') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Monitoring & Evaluasi</a>
+                        <a href="{{ route('rencana-tindak-lanjut') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Rencana Tindak Lanjut</a>
+                        <a href="{{ route('survei') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Survei</a>
                     </div>
                 </div>
             </div>

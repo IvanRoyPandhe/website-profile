@@ -26,13 +26,24 @@ use App\Models\PublikasiJurnal;
 use App\Models\MonitoringEvaluasi;
 use App\Models\RencanaTindakLanjut;
 use App\Models\Survey;
+use App\Models\HomeContent;
+use App\Models\AboutSection;
+use App\Models\WhyChooseSection;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
     public function home()
     {
-        return view('public.home');
+        $heroStats = HomeContent::active()->bySection('hero_stats')->ordered()->get();
+        $aboutStats = HomeContent::active()->bySection('about_stats')->ordered()->get();
+        $aboutFeatures = HomeContent::active()->bySection('about_features')->ordered()->get();
+        $whyChoose = HomeContent::active()->bySection('why_choose')->ordered()->get();
+        $ctaTrust = HomeContent::active()->bySection('cta_trust')->ordered()->get();
+        $aboutSection = AboutSection::active()->first();
+        $whyChooseSection = WhyChooseSection::active()->first();
+        
+        return view('public.home', compact('heroStats', 'aboutStats', 'aboutFeatures', 'whyChoose', 'ctaTrust', 'aboutSection', 'whyChooseSection'));
     }
 
     // Profile Menu Methods
@@ -206,7 +217,7 @@ class PublicController extends Controller
             ->limit(3)
             ->get();
             
-        return view('public.informasi.berita-detail', compact('berita', 'relatedNews'));
+        return view('public.informasi.berita-detail', compact('berita', 'relatedNews'))->with('news', $berita);
     }
 
     public function agenda()

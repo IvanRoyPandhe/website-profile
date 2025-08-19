@@ -39,9 +39,15 @@ class BeritaResource extends Resource
                     ->label('Konten')
                     ->required(),
                 Forms\Components\FileUpload::make('featured_image')
-                    ->label('Gambar Utama')
+                    ->label('Gambar Featured')
+                    ->helperText('Upload gambar utama untuk artikel berita. Rekomendasi ukuran 800x600px.')
                     ->image()
-                    ->directory('berita'),
+                    ->directory('berita')
+                    ->disk('public')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif'])
+                    ->maxSize(5120)
+                    ->deletable(true)
+                    ->previewable(true),
                 Forms\Components\Select::make('category')
                     ->label('Kategori')
                     ->options([

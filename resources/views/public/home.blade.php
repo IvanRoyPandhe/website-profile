@@ -47,7 +47,7 @@
         
         @forelse($slides as $index => $slide)
             <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} absolute inset-0 text-white flex items-center" 
-                 style="background: linear-gradient(rgba(30,64,175,0.7), rgba(30,64,175,0.5)), url('{{ is_array($slide) ? $slide['background_image'] : ($slide->background_image ? Storage::url($slide->background_image) : 'https://picsum.photos/1920/1080?random=1') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                 style="background: linear-gradient(rgba(30,64,175,0.7), rgba(30,64,175,0.5)), url('{{ $slide->background_image ? Storage::url($slide->background_image) : 'https://picsum.photos/1920/1080?random=' . ($index + 1) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <div class="container mx-auto px-6 relative z-10">
                     <div class="max-w-4xl mx-auto text-center transform transition-all duration-700">
                         <div class="mb-8">
@@ -59,16 +59,15 @@
                             </div>
                         </div>
                         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 leading-tight">
-                            <span class="block text-white mb-1 md:mb-2">Program Studi</span>
-                            <span class="block bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
-                                {{ is_array($slide) ? $slide['title'] : ($slide->title ?? 'ILMU GIZI') }}
+                            <span class="block text-white">
+                                {{ $slide->title ?? 'ILMU GIZI' }}
                             </span>
-                            <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blue-200 mt-2 md:mt-4">
+                            <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent mt-2 md:mt-4">
                                 Universitas Muhammadiyah Gresik
                             </span>
                         </h1>
-                        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-blue-100 leading-relaxed max-w-4xl mx-auto font-medium px-4">
-                            {{ is_array($slide) ? $slide['subtitle'] : ($slide->subtitle ?? 'Mencetak Nutrisionis Profesional yang Mandiri, Kreatif, dan Unggul Berasaskan Islam') }}
+                        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-blue-100 leading-relaxed max-w-5xl mx-auto font-medium px-4">
+                            {{ $slide->subtitle ?? 'Mencetak Nutrisionis Profesional yang Mandiri, Kreatif, dan Unggul Berasaskan Islam' }}
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-16">
                             <a href="{{ route('kontak') }}" class="group relative px-6 sm:px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full font-bold text-blue-900 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 text-sm md:text-base">
@@ -89,22 +88,12 @@
                         
                         <!-- Stats Row -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto px-4">
-                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
-                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">B</div>
-                                <div class="text-xs md:text-sm text-blue-200 font-medium">Akreditasi</div>
-                            </div>
-                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
-                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">2030</div>
-                                <div class="text-xs md:text-sm text-blue-200 font-medium">Target Visi</div>
-                            </div>
-                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
-                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">S1</div>
-                                <div class="text-xs md:text-sm text-blue-200 font-medium">Jenjang</div>
-                            </div>
-                            <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
-                                <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">100+</div>
-                                <div class="text-xs md:text-sm text-blue-200 font-medium">Alumni</div>
-                            </div>
+                            @foreach($heroStats as $stat)
+                                <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                                    <div class="text-2xl md:text-3xl font-black text-yellow-400 mb-1">{{ $stat->title }}</div>
+                                    <div class="text-xs md:text-sm text-blue-200 font-medium">{{ $stat->subtitle }}</div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -164,15 +153,15 @@
                 TENTANG PROGRAM STUDI
             </div>
             <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight">
-                Program Studi <br>
-                <span class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">Ilmu Gizi</span>
+                {{ $aboutSection->title ?? 'Program Studi' }} <br>
+                <span class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">{{ $aboutSection->subtitle ?? 'Ilmu Gizi' }}</span>
             </h2>
             <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
-                Mencetak nutrisionis profesional yang kompeten dalam pelayanan gizi masyarakat, 
-                klinik dietetik, dan manajemen penyediaan pangan dengan pendekatan Islam yang rahmatan lil alamiin.
+                {{ $aboutSection->description ?? 'Mencetak nutrisionis profesional yang kompeten dalam pelayanan gizi masyarakat, klinik dietetik, dan manajemen penyediaan pangan dengan pendekatan Islam yang rahmatan lil alamiin.' }}
             </p>
         </div>
         
+        @if($aboutSection && $aboutSection->accreditation_title)
         <!-- Accreditation Badge - Premium Design -->
         <div class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 rounded-3xl p-8 mb-20 shadow-2xl border-4 border-yellow-300 relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-transparent"></div>
@@ -183,87 +172,62 @@
                     </svg>
                 </div>
                 <div class="text-center md:text-left">
-                    <h3 class="text-3xl font-black text-blue-900 mb-3">TERAKREDITASI B</h3>
-                    <p class="text-blue-800 font-bold text-lg">SK Nomor: 0350/LAM-PTKes/Akr/Sar/XI/2020</p>
-                    <p class="text-blue-700 font-medium mt-2">Lembaga Akreditasi Mandiri Pendidikan Tinggi Kesehatan</p>
+                    <h3 class="text-3xl font-black text-blue-900 mb-3">{{ $aboutSection->accreditation_title }}</h3>
+                    <p class="text-blue-800 font-bold text-lg">{{ $aboutSection->accreditation_sk }}</p>
+                    <p class="text-blue-700 font-medium mt-2">{{ $aboutSection->accreditation_institution }}</p>
                 </div>
             </div>
         </div>
+        @endif
         
         <!-- Stats Grid - Modern University Style -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            <div class="group bg-gradient-to-br from-blue-600 to-blue-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-blue-500">
-                <div class="w-16 h-16 bg-yellow-400 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <span class="text-blue-900 font-black text-2xl">B</span>
+            @foreach($aboutStats as $index => $stat)
+                <div class="group bg-gradient-to-br {{ $index % 2 == 0 ? 'from-blue-600 to-blue-700 border-4 border-blue-500' : 'from-yellow-500 to-yellow-600 border-4 border-yellow-400' }} p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 {{ $index % 2 == 0 ? 'bg-yellow-400' : 'bg-blue-800' }} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        @if($loop->last)
+                            <svg class="w-8 h-8 {{ $index % 2 == 0 ? 'text-blue-900' : 'text-yellow-400' }}" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        @else
+                            <span class="{{ $index % 2 == 0 ? 'text-blue-900' : 'text-yellow-400' }} font-black text-xl">{{ $stat->title }}</span>
+                        @endif
+                    </div>
+                    <h4 class="text-lg font-bold {{ $index % 2 == 0 ? 'text-white' : 'text-blue-900' }} text-center mb-2">{{ $stat->subtitle }}</h4>
+                    <p class="{{ $index % 2 == 0 ? 'text-blue-200' : 'text-blue-800' }} text-center text-sm">{{ $stat->description }}</p>
                 </div>
-                <h4 class="text-lg font-bold text-white text-center mb-2">Akreditasi</h4>
-                <p class="text-blue-200 text-center text-sm">Terakreditasi B</p>
-            </div>
-            <div class="group bg-gradient-to-br from-yellow-500 to-yellow-600 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-yellow-400">
-                <div class="w-16 h-16 bg-blue-800 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <span class="text-yellow-400 font-black text-lg">2030</span>
-                </div>
-                <h4 class="text-lg font-bold text-blue-900 text-center mb-2">Target Visi</h4>
-                <p class="text-blue-800 text-center text-sm">Visi 2030</p>
-            </div>
-            <div class="group bg-gradient-to-br from-blue-600 to-blue-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-blue-500">
-                <div class="w-16 h-16 bg-yellow-400 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <span class="text-blue-900 font-black text-2xl">S1</span>
-                </div>
-                <h4 class="text-lg font-bold text-white text-center mb-2">Jenjang</h4>
-                <p class="text-blue-200 text-center text-sm">Sarjana</p>
-            </div>
-            <div class="group bg-gradient-to-br from-yellow-500 to-yellow-600 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-4 border-yellow-400">
-                <div class="w-16 h-16 bg-blue-800 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <h4 class="text-lg font-bold text-blue-900 text-center mb-2">Multi Karir</h4>
-                <p class="text-blue-800 text-center text-sm">Prospek Luas</p>
-            </div>
+            @endforeach
         </div>
         
         <!-- Features - Premium University Cards -->
         <div class="grid md:grid-cols-3 gap-10">
-            <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 border-blue-600 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-transparent rounded-full -mr-16 -mt-16"></div>
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
+            @foreach($aboutFeatures as $index => $feature)
+                <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 {{ $index % 2 == 0 ? 'border-blue-600' : 'border-yellow-500' }} relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br {{ $index % 2 == 0 ? 'from-blue-100' : 'from-yellow-100' }} to-transparent rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br {{ $index % 2 == 0 ? 'from-blue-600 to-blue-700' : 'from-yellow-500 to-yellow-600' }} rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                            @if($feature->icon && $feature->icon != 'null')
+                                @php
+                                    $iconComponent = str_replace('heroicon-o-', '', $feature->icon);
+                                @endphp
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    @if($iconComponent == 'beaker')
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    @elseif($iconComponent == 'user-group')
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    @elseif($iconComponent == 'building-storefront')
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0v2a1 1 0 01-1 1H6a1 1 0 01-1-1v-2m14 0V7a2 2 0 00-2-2H9a2 2 0 00-2 2v14"></path>
+                                    @else
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    @endif
+                                </svg>
+                            @endif
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-{{ $index % 2 == 0 ? 'blue' : 'yellow' }}-600 transition-colors duration-300">{{ $feature->title }}</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">{{ $feature->description }}</p>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">Laboratorium Gizi</h3>
-                    <p class="text-gray-600 text-center leading-relaxed">Fasilitas modern untuk analisis makanan dan gizi dengan peralatan terkini yang mendukung pembelajaran praktis.</p>
                 </div>
-            </div>
-            
-            <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 border-yellow-500 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-100 to-transparent rounded-full -mr-16 -mt-16"></div>
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-yellow-600 transition-colors duration-300">Praktik Dietetik</h3>
-                    <p class="text-gray-600 text-center leading-relaxed">Pengalaman langsung konsultasi gizi dan diet dengan pendekatan kasus nyata di klinik gizi.</p>
-                </div>
-            </div>
-            
-            <div class="group bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-4 border-t-8 border-blue-600 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-transparent rounded-full -mr-16 -mt-16"></div>
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0v2a1 1 0 01-1 1H6a1 1 0 01-1-1v-2m14 0V7a2 2 0 00-2-2H9a2 2 0 00-2 2v14"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">Food Service</h3>
-                    <p class="text-gray-600 text-center leading-relaxed">Manajemen penyediaan pangan dan kewirausahaan di bidang kuliner sehat dengan standar industri.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -283,56 +247,45 @@
                 <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
-                KEUNGGULAN PROGRAM STUDI
+                {{ $whyChooseSection->badge_text ?? 'KEUNGGULAN PROGRAM STUDI' }}
             </div>
             <h2 class="text-4xl lg:text-6xl font-black text-white mb-8 leading-tight">
-                Mengapa Memilih <br>
-                <span class="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Program Gizi UMG?</span>
+                {{ $whyChooseSection->title ?? 'Mengapa Memilih' }} <br>
+                <span class="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">{{ $whyChooseSection->subtitle ?? 'Program Gizi UMG?' }}</span>
             </h2>
             <p class="text-xl text-blue-100 max-w-4xl mx-auto font-medium leading-relaxed">
-                Menjadi nutrisionis yang mandiri, kreatif, dan profesional dengan keunggulan kompetitif di era global
+                {{ $whyChooseSection->description ?? 'Menjadi nutrisionis yang mandiri, kreatif, dan profesional dengan keunggulan kompetitif di era global' }}
             </p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-10">
-            <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
-                        <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M12 6.253c1.168-.776 2.754-1.253 4.5-1.253S19.832 5.477 21 6.253v13M12 6.253L8.5 4.5l7 3v13l-7-3z"></path>
-                        </svg>
+            @foreach($whyChoose as $feature)
+                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                            @if($feature->icon && $feature->icon != 'null')
+                                @php
+                                    $iconComponent = str_replace('heroicon-o-', '', $feature->icon);
+                                @endphp
+                                <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    @if($iconComponent == 'book-open')
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M12 6.253c1.168-.776 2.754-1.253 4.5-1.253S19.832 5.477 21 6.253v13M12 6.253L8.5 4.5l7 3v13l-7-3z"></path>
+                                    @elseif($iconComponent == 'beaker')
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    @elseif($iconComponent == 'heart')
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    @else
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    @endif
+                                </svg>
+                            @endif
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">{{ $feature->title }}</h3>
+                        <p class="text-blue-100 text-center leading-relaxed font-medium">{{ $feature->description }}</p>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">Kurikulum Berkualitas</h3>
-                    <p class="text-blue-100 text-center leading-relaxed font-medium">Kurikulum sesuai standar nasional dan internasional dengan pendekatan kompetensi gizi terkini</p>
                 </div>
-            </div>
-            
-            <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
-                        <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">Penelitian Unggul</h3>
-                    <p class="text-blue-100 text-center leading-relaxed font-medium">Mengembangkan penelitian inovatif berbasis ilmu dan teknologi gizi untuk kesehatan masyarakat</p>
-                </div>
-            </div>
-            
-            <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-3xl p-10 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-6 hover:shadow-2xl hover:shadow-yellow-400/20 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div class="relative z-10">
-                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
-                        <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center group-hover:text-yellow-300 transition-colors duration-300">Pengabdian Masyarakat</h3>
-                    <p class="text-blue-100 text-center leading-relaxed font-medium">Program pengabdian kreatif dan berkelanjutan untuk meningkatkan kesehatan masyarakat</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -485,26 +438,13 @@
             
             <!-- Trust Indicators - Premium Design -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
-                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">B</div>
-                    <div class="text-blue-200 font-bold">Akreditasi</div>
-                    <div class="text-blue-300 text-xs mt-1">Terakreditasi</div>
-                </div>
-                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
-                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">2030</div>
-                    <div class="text-blue-200 font-bold">Target Visi</div>
-                    <div class="text-blue-300 text-xs mt-1">Visi Masa Depan</div>
-                </div>
-                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
-                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">∞</div>
-                    <div class="text-blue-200 font-bold">Prospek Karir</div>
-                    <div class="text-blue-300 text-xs mt-1">Peluang Luas</div>
-                </div>
-                <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
-                    <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">S1</div>
-                    <div class="text-blue-200 font-bold">Jenjang</div>
-                    <div class="text-blue-300 text-xs mt-1">Sarjana</div>
-                </div>
+                @foreach($ctaTrust as $trust)
+                    <div class="group bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center">
+                        <div class="text-4xl font-black text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300">{{ $trust->title }}</div>
+                        <div class="text-blue-200 font-bold">{{ $trust->subtitle }}</div>
+                        <div class="text-blue-300 text-xs mt-1">{{ $trust->description }}</div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -96,7 +96,6 @@
     border: 1px solid rgba(30, 64, 175, 0.1) !important;
     border-radius: 20px !important;
     box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1), 0 8px 16px rgba(251, 191, 36, 0.1) !important;
-    overflow: hidden !important;
     margin: 16px !important;
 }
 
@@ -200,7 +199,6 @@
 
 .fi-table-row:hover {
     background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 20%, #ffffff 100%) !important;
-    transform: scale(1.01) !important;
     box-shadow: 0 8px 25px rgba(251, 191, 36, 0.2) !important;
 }
 
@@ -221,7 +219,6 @@
     box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1) !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     position: relative !important;
-    overflow: hidden !important;
 }
 
 .fi-stats-card::before {
@@ -235,7 +232,6 @@
 }
 
 .fi-stats-card:hover {
-    transform: translateY(-8px) scale(1.02) !important;
     box-shadow: 0 32px 64px rgba(30, 64, 175, 0.2), 0 16px 32px rgba(251, 191, 36, 0.2) !important;
 }
 
@@ -346,7 +342,6 @@
 }
 
 .fi-wi-stats-overview-stat:hover {
-    transform: translateY(-4px) scale(1.02) !important;
     box-shadow: 0 16px 32px rgba(30, 64, 175, 0.15) !important;
 }
 
@@ -359,7 +354,6 @@
 }
 
 .fi-ac-btn-action:hover {
-    transform: scale(1.1) !important;
     background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%) !important;
     border-color: #f59e0b !important;
 }
@@ -548,6 +542,46 @@
     color: #1e40af !important;
     transform: translateY(-2px) scale(1.05) !important;
     box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4) !important;
+}
+
+/* Only show delete button with proper styling */
+.filepond--action-remove-item {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background: linear-gradient(135deg, #fbbf24 0%, #1e40af 100%) !important;
+    color: white !important;
+    border: 2px solid white !important;
+    border-radius: 6px !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.filepond--action-remove-item:hover {
+    background: linear-gradient(135deg, #1e40af 0%, #fbbf24 100%) !important;
+    transform: scale(1.1) !important;
+}
+
+.filepond--action-remove-item svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Hide other buttons */
+.filepond--file-action-button:not(.filepond--action-remove-item) {
+    display: none !important;
+}
+
+/* Hide problematic elements */
+.filepond--file-info-sub,
+.filepond--file-status-sub,
+.filepond--progress-indicator {
+    display: none !important;
 }
 
 /* Responsive Adjustments */
