@@ -617,95 +617,158 @@
         </div>
         
         <div class="container mx-auto px-4 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+                <!-- Program Studi Info - Larger Section -->
+                <div class="lg:col-span-4">
+                    <div class="flex items-start space-x-4 mb-6">
                         <img src="{{ asset('umg-logo.png') }}" alt="UMG Logo" class="h-16 w-auto object-contain flex-shrink-0">
-                        <div class="text-center sm:text-left">
-                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-white mb-1 leading-tight">Program Studi Ilmu Gizi</h3>
-                            <p class="text-yellow-400 font-bold text-sm sm:text-base">Universitas Muhammadiyah Gresik</p>
+                        <div>
+                            <h3 class="text-xl font-black text-white mb-1 leading-tight">Program Studi Ilmu Gizi</h3>
+                            <p class="text-yellow-400 font-bold">Universitas Muhammadiyah Gresik</p>
                         </div>
                     </div>
-                    <p class="text-blue-200 leading-relaxed mb-6 text-lg">Mencetak nutrisionis yang mandiri, kreatif, profesional dan unggul berasaskan Islam untuk kesehatan masyarakat yang lebih baik.</p>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center">
-                            <span class="text-blue-900 font-black text-sm">B</span>
+                    <p class="text-blue-200 leading-relaxed mb-6 text-sm">Mencetak nutrisionis yang mandiri, kreatif, profesional dan unggul berasaskan Islam untuk kesehatan masyarakat yang lebih baik.</p>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center">
+                            <span class="text-blue-900 font-black">B</span>
                         </div>
-                        <span class="text-white font-bold">Terakreditasi B</span>
+                        <div>
+                            <div class="text-white font-bold">Terakreditasi B</div>
+                            <div class="text-blue-300 text-xs">BAN-PT</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="bg-white/5 rounded-lg p-4 backdrop-blur-sm">
+                        <h4 class="font-bold text-white mb-3 flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            Hubungi Kami
+                        </h4>
+                        <div class="space-y-2 text-sm text-blue-200">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                                +6231 395-1414
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                                info@umg.ac.id
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-span-1">
-                    <h4 class="font-black text-white mb-4 md:mb-6 text-base md:text-lg border-b-2 border-yellow-400 pb-2">Quick Links</h4>
-                    <ul class="space-y-2 md:space-y-3 text-blue-200">
-                        <li><a href="{{ route('home') }}" class="hover:text-yellow-400 transition-colors duration-300 flex items-center group">
-                            <svg class="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                            </svg>
-                            Beranda
+                
+                <!-- Lokasi -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide border-b border-yellow-400/30 pb-2">Lokasi Kampus</h4>
+                    <div class="space-y-4 text-xs text-blue-200">
+                        <div class="bg-white/5 rounded-lg p-3">
+                            <div class="font-semibold text-white mb-1 flex items-center">
+                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                                Kampus 1
+                            </div>
+                            <div class="leading-relaxed">Jl. Sumatera No. 101 GKB<br>Gresik 61121, Jawa Timur</div>
+                        </div>
+                        <div class="bg-white/5 rounded-lg p-3">
+                            <div class="font-semibold text-white mb-1 flex items-center">
+                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                                Kampus 2
+                            </div>
+                            <div class="leading-relaxed">Jl. Proklamasi No. 54<br>Gresik 61111, Jawa Timur</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Layanan & Quick Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide border-b border-yellow-400/30 pb-2">Layanan</h4>
+                    <ul class="space-y-2 text-xs text-blue-200 mb-6">
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>PMB
                         </a></li>
-                        <li><a href="{{ route('visi-misi') }}" class="hover:text-yellow-400 transition-colors duration-300 flex items-center group">
-                            <svg class="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Visi & Misi
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>SPADA
                         </a></li>
-                        <li><a href="{{ route('profile-dosen') }}" class="hover:text-yellow-400 transition-colors duration-300 flex items-center group">
-                            <svg class="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM5 20a2 2 0 01-2-2v-1a5 5 0 0110 0v1a2 2 0 01-2 2H5z"/>
-                            </svg>
-                            Profile Dosen
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>SIAKAD
                         </a></li>
-                        <li><a href="{{ route('kurikulum') }}" class="hover:text-yellow-400 transition-colors duration-300 flex items-center group">
-                            <svg class="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Kurikulum
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>E-perpus
+                        </a></li>
+                    </ul>
+                    
+                    <h4 class="font-bold text-white mb-3 text-sm uppercase tracking-wide border-b border-yellow-400/30 pb-2">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-blue-200">
+                        <li><a href="{{ route('home') }}" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>Beranda
+                        </a></li>
+                        <li><a href="{{ route('visi-misi') }}" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>Visi & Misi
+                        </a></li>
+                        <li><a href="{{ route('profile-dosen') }}" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>Profile Dosen
+                        </a></li>
+                        <li><a href="{{ route('kurikulum') }}" class="hover:text-yellow-400 transition-colors flex items-center">
+                            <span class="w-1 h-1 bg-yellow-400 rounded-full mr-2"></span>Kurikulum
                         </a></li>
                     </ul>
                 </div>
-                <div class="col-span-1">
-                    <h4 class="font-black text-white mb-4 md:mb-6 text-base md:text-lg border-b-2 border-yellow-400 pb-2">Informasi Kontak</h4>
-                    <ul class="space-y-3 md:space-y-4 text-blue-200">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-3 mt-1 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                            </svg>
-                            <div>
-                                <div class="font-semibold text-white">Kampus 1:</div>
-                                <div>Jl. Sumatera No. 101 GKB</div>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-3 mt-1 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                            </svg>
-                            <div>
-                                <div class="font-semibold text-white">Kampus 2:</div>
-                                <div>Jl. Proklamasi 54</div>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-3 mt-1 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clip-rule="evenodd"/>
-                            </svg>
-                            <div>
-                                <div class="font-semibold text-white">Gresik, Jawa Timur</div>
-                                <div>Universitas Muhammadiyah Gresik</div>
-                            </div>
-                        </li>
+                
+                <!-- Biro & Direktorat -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide border-b border-yellow-400/30 pb-2">Biro</h4>
+                    <ul class="space-y-1 text-xs text-blue-200 mb-6">
+                        <li><a href="https://bpsi.umg.ac.id/" class="hover:text-yellow-400 transition-colors">BPSI</a></li>
+                        <li><a href="https://baua.umg.ac.id/" class="hover:text-yellow-400 transition-colors">BAUA</a></li>
+                        <li><a href="http://bsdm.umg.ac.id/" class="hover:text-yellow-400 transition-colors">BSDM</a></li>
+                        <li><a href="https://keuangan.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Keuangan</a></li>
+                        <li><a href="https://iro.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Kemitraan</a></li>
+                        <li><a href="https://bdpaik.umg.ac.id/" class="hover:text-yellow-400 transition-colors">DPAIK</a></li>
+                    </ul>
+                    
+                    <h4 class="font-bold text-white mb-3 text-sm uppercase tracking-wide border-b border-yellow-400/30 pb-2">Direktorat & UPT</h4>
+                    <ul class="space-y-1 text-xs text-blue-200">
+                        <li><a href="https://bpm.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Penjaminan Mutu</a></li>
+                        <li><a href="https://vokasi.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Vokasi & Sertifikasi</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Fakultas -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide border-b border-yellow-400/30 pb-2">Fakultas</h4>
+                    <ul class="space-y-1 text-xs text-blue-200">
+                        <li><a href="http://fkip.umg.ac.id/" class="hover:text-yellow-400 transition-colors">FKIP</a></li>
+                        <li><a href="https://feb.umg.ac.id/" class="hover:text-yellow-400 transition-colors">FEB</a></li>
+                        <li><a href="http://fkes.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Kesehatan</a></li>
+                        <li><a href="https://teknik.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Teknik</a></li>
+                        <li><a href="https://umg.ac.id/" class="hover:text-yellow-400 transition-colors">Pertanian</a></li>
+                        <li><a href="http://fai.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Agama Islam</a></li>
+                        <li><a href="http://psikologi.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Psikologi</a></li>
+                        <li><a href="http://fh.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Hukum</a></li>
+                        <li><a href="http://pascasarjana.umg.ac.id/" class="hover:text-yellow-400 transition-colors">Pascasarjana</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t-2 border-yellow-400/30 mt-8 md:mt-12 pt-6 md:pt-8">
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-yellow-400/30 pt-6">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div class="text-center md:text-left">
-                        <p class="text-blue-200 font-medium text-sm md:text-base">&copy; {{ date('Y') }} Program Studi Ilmu Gizi UM Gresik. All rights reserved.</p>
-                        <p class="text-blue-300 text-xs md:text-sm mt-1">Mencetak Nutrisionis Profesional Berasaskan Islam</p>
+                        <p class="text-blue-200 font-medium text-sm">&copy; {{ date('Y') }} Program Studi Ilmu Gizi UM Gresik. All rights reserved.</p>
+                        <p class="text-blue-300 text-xs mt-1">Mencetak Nutrisionis Profesional Berasaskan Islam</p>
                     </div>
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-2">
-                            <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
-                                <span class="text-blue-900 font-black text-xs">B</span>
+                            <div class="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center">
+                                <span class="text-blue-900 font-black text-sm">B</span>
                             </div>
                             <span class="text-white font-bold text-sm">Terakreditasi</span>
                         </div>

@@ -91,8 +91,6 @@
                     <div>
                         <p class="font-semibold text-blue-700 dark:text-blue-300">Berita baru ditambahkan</p>
                         <p class="text-sm text-blue-500 dark:text-blue-400">2 jam yang lalu</p>
-                    </div>
-                </div>
                 
                 <div class="flex items-center p-4 bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-yellow-800 dark:to-yellow-700 rounded-2xl border-l-4 border-blue-400">
                     <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center mr-4">

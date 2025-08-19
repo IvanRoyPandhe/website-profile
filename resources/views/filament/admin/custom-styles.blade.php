@@ -137,7 +137,63 @@
 }
 
 .dark .fi-header-heading {
-    color: #e5e7eb !important;
+    color: #ffffff !important;
+}
+
+/* Fix all text colors in dark theme */
+.dark * {
+    color: #ffffff !important;
+}
+
+.dark .fi-body,
+.dark .fi-main,
+.dark .fi-section,
+.dark .fi-section-content,
+.dark .fi-section-content-ctn,
+.dark .fi-form,
+.dark .fi-form-component-ctn,
+.dark .fi-fo-field-wrp,
+.dark .fi-input,
+.dark .fi-select,
+.dark .fi-textarea,
+.dark .fi-label,
+.dark .fi-field-wrp-label,
+.dark .fi-fo-field-wrp-label,
+.dark .fi-table,
+.dark .fi-ta,
+.dark .fi-ta-content,
+.dark .fi-ta-header,
+.dark .fi-ta-header-cell,
+.dark .fi-ta-cell,
+.dark .fi-ta-text,
+.dark .fi-breadcrumbs,
+.dark .fi-breadcrumbs-item,
+.dark .fi-page-heading,
+.dark .fi-page-sub-heading,
+.dark .fi-resource-table,
+.dark .fi-resource-form,
+.dark p,
+.dark span,
+.dark div,
+.dark label,
+.dark input,
+.dark select,
+.dark textarea {
+    color: #ffffff !important;
+}
+
+/* Specific overrides for elements that should stay colored */
+.dark .fi-btn-primary,
+.dark .fi-header-actions .fi-btn {
+    color: #1f2937 !important;
+}
+
+.dark .fi-sidebar-nav-group-label {
+    color: #1f2937 !important;
+}
+
+.dark .fi-section-header {
+    color: #1f2937 !important;
 }
 
 .dark .fi-modal {
@@ -183,8 +239,12 @@
 
 .dark .fi-global-search-input {
     background: #4b5563 !important;
-    color: #e5e7eb !important;
+    color: #ffffff !important;
     border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+.dark .fi-global-search-input::placeholder {
+    color: #d1d5db !important;
 }
 
 /* Additional Form Styling */
