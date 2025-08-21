@@ -52,14 +52,15 @@ class LecturerResource extends Resource
                     ->rows(3),
                 Forms\Components\FileUpload::make('photo')
                     ->label('Foto Dosen')
-                    ->helperText('Upload foto dosen dengan format JPG, PNG, atau GIF. Maksimal 5MB.')
+                    ->helperText('Upload foto dosen dengan format JPG, PNG. Maksimal 2MB.')
                     ->image()
                     ->directory('lecturers')
                     ->disk('public')
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif'])
-                    ->maxSize(5120)
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
+                    ->maxSize(2048)
                     ->deletable(true)
-                    ->previewable(true),
+                    ->previewable(true)
+                    ->rules(['image', 'mimes:jpeg,png,jpg', 'max:2048']),
                 Forms\Components\TextInput::make('sinta_url')
                     ->label('SINTA URL')
                     ->url()

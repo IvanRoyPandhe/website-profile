@@ -44,10 +44,11 @@ class BeritaResource extends Resource
                     ->image()
                     ->directory('berita')
                     ->disk('public')
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif'])
-                    ->maxSize(5120)
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
+                    ->maxSize(2048)
                     ->deletable(true)
-                    ->previewable(true),
+                    ->previewable(true)
+                    ->rules(['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048']),
                 Forms\Components\Select::make('category')
                     ->label('Kategori')
                     ->options([

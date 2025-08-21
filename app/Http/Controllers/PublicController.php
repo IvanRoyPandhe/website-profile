@@ -234,17 +234,9 @@ class PublicController extends Controller
         return view('public.informasi.kontak');
     }
 
-    public function kontakSubmit(Request $request)
+    public function kontakSubmit(\App\Http\Requests\KontakRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string',
-        ]);
-
-        Kontak::create($request->all());
+        Kontak::create($request->validated());
 
         return redirect()->route('kontak')->with('success', 'Terima kasih atas pesan Anda. Kami akan segera menghubungi Anda!');
     }

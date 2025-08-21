@@ -367,10 +367,10 @@
                     
                     <!-- Profile Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-all duration-200 flex items-center py-2 px-2 xl:px-3 rounded-md hover:bg-white/20 font-medium text-sm xl:text-base">
-                            Profile
-                            <svg class="w-3 h-3 xl:w-4 xl:h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                            Profil       
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
                         <div class="absolute left-0 mt-1 w-56 xl:w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -388,8 +388,8 @@
                     <div class="relative group">
                         <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Akademik
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
                         <div class="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -401,12 +401,13 @@
                         </div>
                     </div>
                     
+                    
                     <!-- Kemahasiswaan Dropdown -->
                     <div class="relative group">
                         <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Kemahasiswaan
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
                         <div class="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -473,11 +474,11 @@
                     <div class="relative group">
                         <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
                             Penjaminan
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        <div class="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="absolute right-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                             <div class="py-2">
                                 <a href="{{ route('monitoring-evaluasi') }}" class="block px-4 py-3 text-sm text-gray-700 hover:bg-nursing-blue hover:text-white transition-colors border-b border-gray-50 last:border-b-0">Monitoring & Evaluasi</a>
                                 <a href="{{ route('rencana-tindak-lanjut') }}" class="block px-4 py-3 text-sm text-gray-700 hover:bg-nursing-blue hover:text-white transition-colors border-b border-gray-50 last:border-b-0">Rencana Tindak Lanjut</a>
