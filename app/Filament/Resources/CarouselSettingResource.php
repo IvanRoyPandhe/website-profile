@@ -17,7 +17,7 @@ class CarouselSettingResource extends Resource
     protected static ?string $navigationLabel = 'Pengaturan Carousel';
     protected static ?string $modelLabel = 'Pengaturan Carousel';
     protected static ?string $pluralModelLabel = 'Pengaturan Carousel';
-    protected static ?string $navigationGroup = 'Website';
+    protected static ?string $navigationGroup = 'Konten Website';
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form

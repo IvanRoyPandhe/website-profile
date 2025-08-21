@@ -245,7 +245,7 @@
         <div class="text-center mb-20">
             <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 rounded-full text-sm font-black mb-8 shadow-2xl">
                 <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                 </svg>
                 {{ $whyChooseSection->badge_text ?? 'KEUNGGULAN PROGRAM STUDI' }}
             </div>
@@ -268,15 +268,15 @@
                                 @php
                                     $iconComponent = str_replace('heroicon-o-', '', $feature->icon);
                                 @endphp
-                                <svg class="w-10 h-10 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-10 h-10 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
                                     @if($iconComponent == 'book-open')
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M12 6.253c1.168-.776 2.754-1.253 4.5-1.253S19.832 5.477 21 6.253v13M12 6.253L8.5 4.5l7 3v13l-7-3z"></path>
+                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
                                     @elseif($iconComponent == 'beaker')
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                        <path fill-rule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.010-3.231 2.121-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.306-.075l1.134-1.134A3 3 0 009 8.172z" clip-rule="evenodd"/>
                                     @elseif($iconComponent == 'heart')
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                                     @else
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                     @endif
                                 </svg>
                             @endif
@@ -304,15 +304,15 @@
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"/>
                     <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V9a1 1 0 00-1-1h-1v3a2 2 0 01-2 2H5a2 2 0 01-2-2V9a1 1 0 00-1 1v5.5a1.5 1.5 0 01-3 0V9a2 2 0 012-2h1V5a2 2 0 012-2h8a2 2 0 012 2v2z"/>
                 </svg>
-                <span class="hidden sm:inline">BERITA & INFORMASI TERKINI</span>
+                <span class="hidden sm:inline">{{ $newsSection->badge_text ?? 'BERITA & INFORMASI TERKINI' }}</span>
                 <span class="sm:hidden">BERITA TERKINI</span>
             </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 md:mb-8 leading-tight px-4">
-                <span class="block sm:inline">Informasi </span>
-                <span class="block sm:inline bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">Terbaru</span>
+                <span class="block sm:inline">{{ $newsSection->title ?? 'Informasi' }} </span>
+                <span class="block sm:inline bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">{{ $newsSection->subtitle ?? 'Terbaru' }}</span>
             </h2>
             <p class="text-base sm:text-lg md:text-xl text-gray-700 max-w-4xl mx-auto mb-8 md:mb-12 font-medium leading-relaxed px-4">
-                Ikuti perkembangan terbaru dari program studi dan dunia gizi untuk tetap update dengan informasi terkini
+                {{ $newsSection->description ?? 'Ikuti perkembangan terbaru dari program studi dan dunia gizi untuk tetap update dengan informasi terkini' }}
             </p>
             <a href="{{ route('berita') }}" class="inline-flex items-center px-6 sm:px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 rounded-full font-bold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-2xl hover:shadow-yellow-400/25 transform hover:scale-105 hover:-translate-y-1 text-sm md:text-base">
                 <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 md:mr-3" fill="currentColor" viewBox="0 0 20 20">
@@ -556,5 +556,93 @@
     .transition-premium {
         transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
+    
+    /* Carousel Styles */
+    .carousel-slide {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        z-index: 1;
+    }
+    
+    .carousel-slide.active {
+        opacity: 1;
+        z-index: 2;
+    }
+    
+    .carousel-indicator {
+        transition: all 0.3s ease;
+    }
+    
+    .carousel-indicator.active {
+        background-color: #fbbf24 !important;
+        transform: scale(1.25);
+    }
 </style>
+
+<script>
+// Carousel functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const indicators = document.querySelectorAll('.carousel-indicator');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    // Hide all slides
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+    });
+    
+    // Show current slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+    }
+    
+    // Update indicators
+    indicators.forEach((indicator, i) => {
+        indicator.classList.remove('active', 'bg-yellow-400', 'scale-125');
+        indicator.classList.add('bg-white/40');
+        
+        if (i === index) {
+            indicator.classList.add('active', 'bg-yellow-400', 'scale-125');
+            indicator.classList.remove('bg-white/40');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+// Initialize carousel
+if (totalSlides > 0) {
+    showSlide(0);
+}
+
+// Event listeners
+if (document.getElementById('nextSlide')) {
+    document.getElementById('nextSlide').addEventListener('click', nextSlide);
+}
+if (document.getElementById('prevSlide')) {
+    document.getElementById('prevSlide').addEventListener('click', prevSlide);
+}
+
+// Indicator clicks
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+    });
+});
+
+// Auto-advance carousel
+if (totalSlides > 1) {
+    setInterval(nextSlide, 5000);
+}
+</script>
 @endsection

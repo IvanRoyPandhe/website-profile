@@ -349,25 +349,25 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation - Premium University Style -->
-    <nav class="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-800 shadow-2xl sticky top-0 z-50 border-b-4 border-yellow-400">
+    <nav class="bg-white shadow-2xl sticky top-0 z-50 border-b-4 border-yellow-400">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="flex justify-between items-center py-3 md:py-4">
                 <div class="flex items-center">
                     <div class="flex items-center space-x-2 sm:space-x-3">
                         <img src="{{ asset('umg-logo.png') }}" alt="UMG Logo" class="h-10 sm:h-12 md:h-14 w-auto object-contain hover:scale-110 transition-transform duration-300">
                         <div class="hidden sm:block">
-                            <div class="text-white font-black text-sm sm:text-base md:text-lg">PRODI GIZI</div>
-                            <div class="text-yellow-400 font-bold text-xs sm:text-sm">UM GRESIK</div>
+                            <div class="text-blue-800 font-black text-sm sm:text-base md:text-lg">PRODI GIZI</div>
+                            <div class="text-blue-600 font-bold text-xs sm:text-sm">UM GRESIK</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-2 xl:space-x-4">
-                    <a href="{{ route('home') }}" class="text-white hover:text-yellow-300 transition-all duration-200 py-2 px-2 xl:px-3 rounded-md hover:bg-white/10 font-medium text-sm xl:text-base {{ request()->routeIs('home') ? 'text-yellow-300 font-semibold bg-white/20' : '' }}">Beranda</a>
+                    <a href="{{ route('home') }}" class="text-blue-800 hover:text-yellow-500 transition-all duration-200 py-2 px-2 xl:px-3 rounded-md hover:bg-yellow-50 font-medium text-sm xl:text-base {{ request()->routeIs('home') ? 'text-yellow-500 font-semibold bg-yellow-50' : '' }}">Beranda</a>
                     
                     <!-- Profile Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Profil       
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -386,7 +386,7 @@
                     
                     <!-- Akademik Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Akademik
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -404,7 +404,7 @@
                     
                     <!-- Kemahasiswaan Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Kemahasiswaan
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -422,7 +422,7 @@
                     
                     <!-- Dokumen Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Dokumen
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -438,7 +438,7 @@
                     
                     <!-- Publikasi Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Publikasi
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -455,7 +455,7 @@
                     
                     <!-- Informasi Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Informasi
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -472,7 +472,7 @@
                     
                     <!-- Penjaminan Dropdown -->
                     <div class="relative group">
-                        <button class="text-white hover:text-yellow-300 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-white/20 font-medium">
+                        <button class="text-blue-800 hover:text-yellow-500 transition-colors transition-all duration-200 flex items-center py-2 px-3 rounded-md hover:bg-yellow-50 font-medium">
                             Penjaminan
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -490,7 +490,7 @@
                 
                 <!-- Mobile menu button -->
                 <div class="lg:hidden">
-                    <button id="mobile-menu-button" class="text-white hover:text-yellow-300 p-2 rounded-md hover:bg-white/10 transition-colors">
+                    <button id="mobile-menu-button" class="text-blue-800 hover:text-yellow-500 p-2 rounded-md hover:bg-yellow-50 transition-colors">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -499,106 +499,106 @@
             </div>
             
             <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-1 border-t border-yellow-400/30 mt-3 pt-3">
-                <a href="{{ route('home') }}" class="block py-3 px-4 text-white hover:text-yellow-300 hover:bg-white/20 rounded-md transition-colors font-medium {{ request()->routeIs('home') ? 'text-yellow-300 font-semibold bg-white/20' : '' }}">Beranda</a>
+            <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-1 border-t border-blue-200 mt-3 pt-3">
+                <a href="{{ route('home') }}" class="block py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium {{ request()->routeIs('home') ? 'text-yellow-500 font-semibold bg-yellow-50' : '' }}">Beranda</a>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-white hover:text-yellow-300 hover:bg-white/20 rounded-md transition-colors font-medium flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Profile
                         <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
-                        <a href="{{ route('visi-misi') }}" class="block py-2 text-sm text-white hover:text-yellow-300 transition-colors">Visi Keilmuan dan Tujuan</a>
-                        <a href="{{ route('struktur-organisasi') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Struktur Organisasi</a>
-                        <a href="{{ route('profile-dosen') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Profile Dosen</a>
-                        <a href="{{ route('prospek-lulusan') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Prospek Lulusan</a>
-                        <a href="{{ route('biaya-pendidikan') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Biaya Pendidikan</a>
+                        <a href="{{ route('visi-misi') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Visi Keilmuan dan Tujuan</a>
+                        <a href="{{ route('struktur-organisasi') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Struktur Organisasi</a>
+                        <a href="{{ route('profile-dosen') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Profile Dosen</a>
+                        <a href="{{ route('prospek-lulusan') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Prospek Lulusan</a>
+                        <a href="{{ route('biaya-pendidikan') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Biaya Pendidikan</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Akademik
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('kurikulum') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kurikulum dan Matakuliah</a>
-                        <a href="{{ route('kalender-akademik') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kalender Akademik</a>
-                        <a href="{{ route('jadwal-kuliah') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Jadwal Kuliah</a>
+                    <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
+                        <a href="{{ route('kurikulum') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Kurikulum dan Matakuliah</a>
+                        <a href="{{ route('kalender-akademik') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Kalender Akademik</a>
+                        <a href="{{ route('jadwal-kuliah') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Jadwal Kuliah</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Kemahasiswaan
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('hima') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">HIMA</a>
-                        <a href="{{ route('ikahima') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">IKAHIMA</a>
-                        <a href="{{ route('prestasi-mahasiswa') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Prestasi Mahasiswa</a>
-                        <a href="{{ route('survey-pengguna') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Survey Pengguna</a>
+                    <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
+                        <a href="{{ route('hima') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">HIMA</a>
+                        <a href="{{ route('ikahima') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">IKAHIMA</a>
+                        <a href="{{ route('prestasi-mahasiswa') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Prestasi Mahasiswa</a>
+                        <a href="{{ route('survey-pengguna') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Survey Pengguna</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Dokumen
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('akreditasi') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Akreditasi</a>
-                        <a href="{{ route('kebijakan') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kebijakan</a>
+                    <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
+                        <a href="{{ route('akreditasi') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Akreditasi</a>
+                        <a href="{{ route('kebijakan') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Kebijakan</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Publikasi
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('penelitian') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Penelitian</a>
-                        <a href="{{ route('pengabdian') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Pengabdian</a>
-                        <a href="{{ route('publikasi-jurnal') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Publikasi Jurnal</a>
+                    <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
+                        <a href="{{ route('penelitian') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Penelitian</a>
+                        <a href="{{ route('pengabdian') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Pengabdian</a>
+                        <a href="{{ route('publikasi-jurnal') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Publikasi Jurnal</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Informasi
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('berita') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Berita</a>
-                        <a href="{{ route('agenda') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Agenda</a>
-                        <a href="{{ route('kontak') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Kontak</a>
+                    <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
+                        <a href="{{ route('berita') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Berita</a>
+                        <a href="{{ route('agenda') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Agenda</a>
+                        <a href="{{ route('kontak') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Kontak</a>
                     </div>
                 </div>
                 
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn w-full text-left py-2 text-white hover:text-yellow-300 transition-colors flex items-center justify-between">
+                    <button class="mobile-dropdown-btn w-full text-left py-3 px-4 text-blue-800 hover:text-yellow-500 hover:bg-yellow-50 rounded-md transition-colors font-medium flex items-center justify-between">
                         Penjaminan
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
-                        <a href="{{ route('monitoring-evaluasi') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Monitoring & Evaluasi</a>
-                        <a href="{{ route('rencana-tindak-lanjut') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Rencana Tindak Lanjut</a>
-                        <a href="{{ route('survei') }}" class="block py-1 text-sm text-white hover:text-yellow-300 transition-colors">Survei</a>
+                    <div class="mobile-dropdown-content hidden pl-6 space-y-1 mt-2">
+                        <a href="{{ route('monitoring-evaluasi') }}" class="block py-2 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Monitoring & Evaluasi</a>
+                        <a href="{{ route('rencana-tindak-lanjut') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Rencana Tindak Lanjut</a>
+                        <a href="{{ route('survei') }}" class="block py-1 text-sm text-blue-700 hover:text-yellow-500 transition-colors">Survei</a>
                     </div>
                 </div>
             </div>
@@ -823,275 +823,21 @@
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // Mobile dropdown functionality
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const arrow = this.querySelector('svg');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+            
+            mobileDropdowns.forEach(dropdown => {
+                const btn = dropdown.querySelector('.mobile-dropdown-btn');
+                const content = dropdown.querySelector('.mobile-dropdown-content');
+                const icon = btn.querySelector('svg');
                 
-                content.classList.toggle('hidden');
-                arrow.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                btn.addEventListener('click', function() {
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
             });
-        });
-        
-        // Carousel functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.carousel-indicator');
-        const totalSlides = slides.length;
-        
-        function showSlide(index) {
-            const currentActive = document.querySelector('.carousel-slide.active');
-            const nextSlide = slides[index];
-            
-            if (currentActive && currentActive !== nextSlide) {
-                currentActive.classList.add('fade-out');
-                
-                setTimeout(() => {
-                    currentActive.classList.remove('active', 'fade-out');
-                    nextSlide.classList.add('fade-in', 'active');
-                    
-                    setTimeout(() => {
-                        nextSlide.classList.remove('fade-in');
-                    }, 50);
-                }, 100);
-            } else if (!currentActive) {
-                nextSlide.classList.add('active');
-            }
-            
-            indicators.forEach((indicator, i) => {
-                if (i === index) {
-                    indicator.classList.add('active', 'bg-yellow-400', 'scale-125');
-                    indicator.classList.remove('bg-white/40');
-                } else {
-                    indicator.classList.remove('active', 'bg-yellow-400', 'scale-125');
-                    indicator.classList.add('bg-white/40');
-                }
-            });
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-        
-        // Auto-advance carousel
-        if (totalSlides > 1) {
-            setInterval(nextSlide, 12000);
-        }
-        
-        // Carousel controls
-        if (document.getElementById('nextSlide')) {
-            document.getElementById('nextSlide').addEventListener('click', nextSlide);
-        }
-        if (document.getElementById('prevSlide')) {
-            document.getElementById('prevSlide').addEventListener('click', prevSlide);
-        }
-        
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-            });
-        });
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    
-                    // Animate feature cards with stagger
-                    if (entry.target.classList.contains('animate-on-scroll')) {
-                        const cards = entry.target.querySelectorAll('.feature-card, .news-card');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animate');
-                            }, index * 200);
-                        });
-                    }
-                }
-            });
-        }, observerOptions);
-        
-        // Observe elements for scroll animations
-        document.querySelectorAll('.animate-on-scroll, .luxury-fade-up, .luxury-slide-left, .luxury-slide-right, .luxury-zoom-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('#heroCarousel');
-            if (heroSection) {
-                heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-        
-        // Enhanced icon animations
-        document.querySelectorAll('.icon-bounce').forEach(icon => {
-            icon.addEventListener('mouseenter', () => {
-                icon.classList.add('float-animation');
-                icon.style.transform = 'scale(1.1) rotate(5deg)';
-            });
-            icon.addEventListener('mouseleave', () => {
-                icon.classList.remove('float-animation');
-                icon.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-        
-        // Add smooth reveal animation for elements
-        const revealElements = document.querySelectorAll('.feature-card, .news-card');
-        revealElements.forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.1}s`;
-        });
-        
-        // Add magnetic effect to buttons
-        document.querySelectorAll('a, button').forEach(element => {
-            element.addEventListener('mousemove', (e) => {
-                const rect = element.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.02)`;
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = 'translate(0px, 0px) scale(1)';
-            });
-        });
-        
-        // Keyboard navigation for carousel
-        document.addEventListener('keydown', (e) => {
-            if (totalSlides > 1) {
-                if (e.key === 'ArrowRight') nextSlide();
-                if (e.key === 'ArrowLeft') prevSlide();
-            }
-        });
-        
-        // Touch/swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        const carouselTouch = document.getElementById('heroCarousel');
-        if (carouselTouch) {
-            carouselTouch.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            carouselTouch.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-        }
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) nextSlide();
-                else prevSlide();
-            }
-        }
-        
-        // Language Switcher
-        function switchLanguage(lang) {
-            const currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.set('lang', lang);
-            window.location.href = currentUrl.toString();
-        }
-        
-        // Initialize language from URL or localStorage
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedLang = urlParams.get('lang') || localStorage.getItem('language') || 'id';
-        
-        if (selectedLang) {
-            localStorage.setItem('language', selectedLang);
-            translatePage(selectedLang);
-        }
-        
-        // Simple translation function
-        function translatePage(lang) {
-            const translations = {
-                'id': {
-                    'Home': 'Beranda',
-                    'About Us': 'Tentang Kami',
-                    'Academic Staff': 'Staf Akademik',
-                    'Curriculum': 'Kurikulum',
-                    'Contact Us': 'Hubungi Kami',
-                    'Profile': 'Profil',
-                    'Academic': 'Akademik',
-                    'Student Affairs': 'Kemahasiswaan',
-                    'Documents': 'Dokumen',
-                    'Publications': 'Publikasi',
-                    'Information': 'Informasi',
-                    'Quality Assurance': 'Penjaminan Mutu'
-                },
-                'en': {
-                    'Beranda': 'Home',
-                    'Tentang Kami': 'About Us',
-                    'Staf Akademik': 'Academic Staff',
-                    'Kurikulum': 'Curriculum',
-                    'Hubungi Kami': 'Contact Us',
-                    'Profil': 'Profile',
-                    'Akademik': 'Academic',
-                    'Kemahasiswaan': 'Student Affairs',
-                    'Dokumen': 'Documents',
-                    'Publikasi': 'Publications',
-                    'Informasi': 'Information',
-                    'Penjaminan Mutu': 'Quality Assurance'
-                }
-            };
-            
-            const currentTranslations = translations[lang] || {};
-            
-            // Translate navigation menu
-            document.querySelectorAll('nav a, nav button').forEach(element => {
-                const text = element.textContent.trim();
-                if (currentTranslations[text]) {
-                    element.textContent = currentTranslations[text];
-                }
-            });
-            
-            // Translate page titles
-            document.querySelectorAll('h1, h2, h3').forEach(element => {
-                const text = element.textContent.trim();
-                if (currentTranslations[text]) {
-                    element.textContent = currentTranslations[text];
-                }
-            });
-        }
-        
-        // Scroll to Top functionality
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', () => {
-            const scrollButton = document.getElementById('scroll-to-top');
-            if (window.pageYOffset > 300) {
-                scrollButton.classList.remove('opacity-0', 'invisible');
-                scrollButton.classList.add('opacity-100', 'visible');
-            } else {
-                scrollButton.classList.add('opacity-0', 'invisible');
-                scrollButton.classList.remove('opacity-100', 'visible');
-            }
         });
     </script>
 </body>

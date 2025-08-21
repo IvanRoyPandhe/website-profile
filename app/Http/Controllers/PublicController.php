@@ -42,8 +42,10 @@ class PublicController extends Controller
         $ctaTrust = HomeContent::active()->bySection('cta_trust')->ordered()->get();
         $aboutSection = AboutSection::active()->first();
         $whyChooseSection = WhyChooseSection::active()->first();
+        $newsSection = \App\Models\NewsSection::active()->first();
+        $ctaSection = \App\Models\CtaSection::active()->first();
         
-        return view('public.home', compact('heroStats', 'aboutStats', 'aboutFeatures', 'whyChoose', 'ctaTrust', 'aboutSection', 'whyChooseSection'));
+        return view('public.home', compact('heroStats', 'aboutStats', 'aboutFeatures', 'whyChoose', 'ctaTrust', 'aboutSection', 'whyChooseSection', 'newsSection', 'ctaSection'));
     }
 
     // Profile Menu Methods
